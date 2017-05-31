@@ -1,0 +1,269 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<configuration>
+
+ <property>
+    <name>mist_pid_dir</name>
+    <value>/var/run/mist</value>
+    <description>Dir containing process ID file</description>
+  </property>
+
+  <property>
+    <name>mist_user</name>
+    <value>mist</value>
+    <property-type>USER</property-type>
+    <description>User mist daemon runs as</description>
+  </property>
+
+  <property>
+    <name>mist_group</name>
+    <value>mist</value>
+    <property-type>GROUP</property-type>
+    <description>Mist group</description>
+  </property>
+
+  <property>
+    <name>mist_log_dir</name>
+    <value>/var/log/mist</value>
+    <description>Mist Log dir</description>
+  </property>
+
+    <property>
+        <name>mist_java_args</name>
+        <value>-Xmx512m</value>
+        <description>Default java args</description>
+    </property>
+    <property>
+        <name>default_config_file</name>
+        <value>/usr/hdp/current/mist/configs/default.conf</value>
+        <description>Default configuration</description>
+    </property>
+    <property>
+        <name>default_routers_file</name>
+        <value>/usr/hdp/current/mist/configs/router-examples.conf</value>
+        <description>Default routers configuration</description>
+    </property>
+
+  <property>
+     <name>mist_default</name>
+     <description>This is the jinja template for Mist default.conf file</description>
+     <value># spark master
+ mist.context-defaults.spark-conf = {
+   spark.master = "local[*]"
+ }
+
+ mist.http.on = true
+ mist.http.host = "{{mist_host}}"
+ mist.http.port = {{mist_port}}
+ mist.http.router-config-path = "{{conf_dir}}/router-examples.conf"
+
+ mist.workers.runner = "local"
+
+ mist.mqtt.on = false
+ mist.recovery.on = false
+
+ mist.context-defaults.disposable = false
+     </value>
+   </property>
+   <property>
+      <name>mist_routers</name>
+      <description>This is the jinja template for Mist router-examples.conf file</description>
+      <value>log-search = {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "SimpleTextSearch$"
+  namespace = "foo"
+}
+
+hive-test = {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "SimpleHiveContext$"
+  namespace = "foo"
+}
+
+streaming-log-search = {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "StreamingTextSearch$"
+  namespace = "streaming"
+}
+
+classification = {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "MLClassification$"
+  namespace = "regression"
+}
+
+simple-context = {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "SimpleContext$"
+  namespace = "foo"
+}
+
+simple-context-py = {
+  path = "{{mist_dir}}/examples-python/simple_context.py"
+  className = "SimpleContext"
+  namespace = "foo"
+}
+
+hive-job-py = {
+  path = "{{mist_dir}}/examples-python/simple_hive_context.py"
+  className = "SimpleHiveContext"
+  namespace = "foo"
+}
+
+simple-streaming-py = {
+  path = "{{mist_dir}}/examples-python/simple_streaming.py"
+  className = "SimpleStreaming"
+  namespace = "foo"
+}
+
+dtree {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "DTreeClassificationJob$"
+  namespace = "DTree"
+}
+
+regression {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "MLClassification$"
+  namespace = "Perceptron"
+}
+
+random_forest {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "RandomForestClassificationJob$"
+  namespace = "RandomForest"
+}
+
+binarizer {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "BinarizerJob$"
+  namespace = "Binarizer"
+}
+
+pca {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "PCAJob$"
+  namespace = "PCA"
+}
+
+minmaxscaler {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "MinMaxScalerJob$"
+  namespace = "MinMaxScaler"
+}
+
+standardscaler {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "StandardScalerJob$"
+  namespace = "StandardScaler"
+}
+
+maxabsscaler {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "MaxAbsScalerJob$"
+  namespace = "MaxAbsScaler"
+}
+
+stringindexer {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "StringIndexerJob$"
+  namespace = "StringIndexer"
+}
+
+onehotencoder {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "OneHotEncoderJob$"
+  namespace = "OneHotEncoder"
+}
+
+ngrams {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "NgramJob$"
+  namespace = "Ngram"
+}
+
+stop-words-remover {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "StopWordsRemoverJob$"
+  namespace = "StopWordsRemover"
+}
+
+normalizer {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "NormalizerJob$"
+  namespace = "Normalizer"
+}
+
+polynomial-expansion {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "PolynomialExpansionJob$"
+  namespace = "PolynomialExpansion"
+}
+
+dct {
+  path = "{{mist_dir}}/mist-examples-spark1.jar"
+  className = "DCTJob$"
+  namespace = "DCT"
+}
+      </value>
+    </property>
+
+    <property>
+        <name>mist_ambari_service</name>
+        <description>Mist service starter</description>
+<value>#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          Mist
+# Required-Start:    $local_fs $network $named $time $syslog
+# Required-Stop:     $local_fs $network $named $time $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Description:       Hydrosphere Mist
+### END INIT INFO
+
+export SPARK_HOME={{spark_home}}
+
+set -e
+
+start() {
+    {{mist_dir}}/bin/mist-master start --config {{default_config_file}} --router-config {{default_routers_file}} --pid {{mist_pid_file}} --java-args {{mist_java_args}}
+}
+
+stop() {
+    {{mist_dir}}/bin/mist-master stop --pid {{mist_pid_file}}
+}
+
+case "$1" in
+start)
+start
+;;
+stop)
+stop
+;;
+restart)
+stop
+start
+;;
+*)
+echo "Usage: $0 {start|stop|restart}"
+esac</value>
+    </property>
+</configuration>

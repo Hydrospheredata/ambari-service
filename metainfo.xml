@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>MIST</name>
+            <displayName>Mist</displayName>
+            <comment>Hydrosphere Mist is a service for exposing analytical
+              jobs and machine learning models as web services.
+            </comment>
+            <version>0.12.0</version>
+            <components>
+                <component>
+                    <name>MIST_MASTER</name>
+                    <displayName>MistMaster</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1</cardinality>
+                    <commandScript>
+                        <script>scripts/master.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                </component>
+            </components>
+
+            <osSpecifics>
+                <osSpecific>
+                    <osFamily>debian7,ubuntu12,ubuntu14</osFamily>
+                    <packages>
+                      <package>
+                          <name>python2.7-dev</name>
+                      </package>
+                      <package>
+                          <name>jq</name>
+                      </package>
+                      <package>
+                          <name>curl</name>
+                      </package>
+                      <package>
+                          <name>net-tools</name>
+                      </package>
+                      <package>
+                          <name>openjdk-8-jdk</name>
+                      </package>
+                    </packages>
+                </osSpecific>
+                <osSpecific>
+                    <osFamily>redhat7,redhat6,redhat5</osFamily>
+                    <packages>
+                      <package>
+                          <name>python-devel</name>
+                      </package>
+                      <package>
+                          <name>jq</name>
+                      </package>
+                      <package>
+                          <name>curl</name>
+                      </package>
+                      <package>
+                          <name>net-tools</name>
+                      </package>
+                      <package>
+                          <name>centos-release-SCL</name>
+                      </package>
+                      <package>
+                          <name>python27</name>
+                      </package>
+                      <package>
+                          <name>java-1.8.0-openjdk</name>
+                      </package>
+                    </packages>
+                </osSpecific>
+            </osSpecifics>
+
+            <requiredServices>
+              <service>SPARK2</service>
+            </requiredServices>
+
+            <configuration-dependencies>
+                <config-type>mist-ambari-config</config-type>
+                <config-type>mist-config</config-type>
+            </configuration-dependencies>
+            <restartRequiredAfterChange>false</restartRequiredAfterChange>
+        </service>
+    </services>
+</metainfo>
