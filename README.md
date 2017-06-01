@@ -34,10 +34,10 @@ sudo service ambari-server restart
 ambari-admin-password-reset
 ```
 - Install service using Ambari UI
-![Image](../screenshots/add_service.png?raw=true)
+![Image](screenshots/add_service.png?raw=true)
 - Configure package
-![Image](../screenshots/configure.png?raw=true)
+![Image](screenshots/configure.png?raw=true)
 - Configure package
-![Image](../screenshots/service.png?raw=true)
+![Image](screenshots/service.png?raw=true)
 - Start jobs using Mist View
-![Image](../screenshots/view.png?raw=true)
+![Image](screenshots/view.png?raw=true)
