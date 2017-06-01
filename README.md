@@ -13,6 +13,9 @@ Ambari service for easily installing and managing Mist on HDP cluster
 - Connect to the VM via SSH (password hadoop) and start Ambari server
 ```
 ssh root@sandbox.hortonworks.com
+
+#or use with VirtualBox
+ssh root@localhost -p 2222
 ```
 - To deploy the Mist service, run below on ambari server
 ```
@@ -26,4 +29,15 @@ service ambari restart
 
 #on non-sandbox
 sudo service ambari-server restart
+
+#or reset admin password
+ambari-admin-password-reset
 ```
+- Install service using Ambari UI
+![Image](../screenshots/add_service.png?raw=true)
+- Configure package
+![Image](../screenshots/configure.png?raw=true)
+- Configure package
+![Image](../screenshots/service.png?raw=true)
+- Start jobs using Mist View
+![Image](../screenshots/view.png?raw=true)
