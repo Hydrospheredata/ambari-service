@@ -41,4 +41,4 @@ conf_dir = os.path.join(*[install_dir, mist_dirname, 'configs'])
 master_configs = config['clusterHostInfo']
 java64_home = config['hostLevelParams']['java_home']
 ambari_host = str(master_configs['ambari_server_host'][0])
-mist_internalhost = str(master_configs['mist_master_hosts'][0])
+mist_internalhost = str(master_configs['hydrosphere_master_hosts'][0])

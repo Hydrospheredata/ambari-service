@@ -20,7 +20,7 @@ ssh root@localhost -p 2222
 - To deploy the Hydrosphere service, run below on ambari server
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
-sudo git clone https://github.com/Hydrospheredata/ambari-mist-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/HYDROSPHERE
+sudo git clone https://github.com/Hydrospheredata/ambari-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/HYDROSPHERE
 ```
 - Restart Ambari
 ```
@@ -33,7 +33,7 @@ sudo service ambari-server restart
 #or reset admin password
 ambari-admin-password-reset
 ```
-- Install service using Ambari UI
+- Install Hydrosphere.io service using Ambari UI
 ![Image](screenshots/add_service.png?raw=true)
 - Configure package
 ![Image](screenshots/configure.png?raw=true)
