@@ -3,16 +3,16 @@
     <schemaVersion>2.0</schemaVersion>
     <services>
         <service>
-            <name>MIST</name>
-            <displayName>Mist</displayName>
-            <comment>Hydrosphere Mist is a service for exposing analytical
+            <name>HYDROSPHERE</name>
+            <displayName>Hydrosphere.io</displayName>
+            <comment>Hydrosphere is a service for exposing analytical
               jobs and machine learning models as web services.
             </comment>
             <version>0.12.0</version>
             <components>
                 <component>
-                    <name>MIST_MASTER</name>
-                    <displayName>MistMaster</displayName>
+                    <name>HYDROSPHERE_MASTER</name>
+                    <displayName>HydrosphereMaster</displayName>
                     <category>MASTER</category>
                     <cardinality>1</cardinality>
                     <commandScript>
@@ -77,8 +77,8 @@
             </requiredServices>
 
             <configuration-dependencies>
-                <config-type>mist-ambari-config</config-type>
-                <config-type>mist-config</config-type>
+                <config-type>hydrosphere-ambari-config</config-type>
+                <config-type>hydrosphere-config</config-type>
             </configuration-dependencies>
             <restartRequiredAfterChange>false</restartRequiredAfterChange>
         </service>

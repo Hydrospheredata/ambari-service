@@ -9,27 +9,27 @@ config = Script.get_config()
 service_packagedir = os.path.realpath(__file__).split('/scripts')[0]
 
 mist_dirname = 'mist'
-install_dir = '/usr/hdp/current'
+install_dir = '/usr/share'
 
-mist_host = config['configurations']['mist-config']['mist.server.host']
-mist_port = config['configurations']['mist-config']['mist.server.port']
+mist_host = config['configurations']['hydrosphere-config']['mist.server.host']
+mist_port = config['configurations']['hydrosphere-config']['mist.server.port']
 
-mist_version = config['configurations']['mist-ambari-config']['mist.version']
-spark_version = config['configurations']['mist-ambari-config']['spark.version']
-setup_view = config['configurations']['mist-ambari-config']['mist.setup.view']
-mist_addr = config['configurations']['mist-ambari-config']['mist.host.publicname']
-spark_home = config['configurations']['mist-ambari-config']['spark.home']
+mist_version = config['configurations']['hydrosphere-ambari-config']['mist.version']
+spark_version = config['configurations']['hydrosphere-ambari-config']['spark.version']
+setup_view = config['configurations']['hydrosphere-ambari-config']['mist.setup.view']
+mist_addr = config['configurations']['hydrosphere-ambari-config']['mist.host.publicname']
+spark_home = config['configurations']['hydrosphere-ambari-config']['spark.home']
 
 # params from mist-env
-mist_ambari_service = config['configurations']['mist-env']['mist_ambari_service']
+mist_ambari_service = config['configurations']['hydrosphere-env']['mist_ambari_service']
 
-mist_user = config['configurations']['mist-env']['mist_user']
-mist_group = config['configurations']['mist-env']['mist_group']
-mist_log_dir = config['configurations']['mist-env']['mist_log_dir']
-mist_pid_dir = config['configurations']['mist-env']['mist_pid_dir']
-default_config_file = config['configurations']['mist-env']['default_config_file']
-default_routers_file = config['configurations']['mist-env']['default_routers_file']
-mist_java_args = config['configurations']['mist-env']['mist_java_args']
+mist_user = config['configurations']['hydrosphere-env']['mist_user']
+mist_group = config['configurations']['hydrosphere-env']['mist_group']
+mist_log_dir = config['configurations']['hydrosphere-env']['mist_log_dir']
+mist_pid_dir = config['configurations']['hydrosphere-env']['mist_pid_dir']
+default_config_file = config['configurations']['hydrosphere-env']['default_config_file']
+default_routers_file = config['configurations']['hydrosphere-env']['default_routers_file']
+mist_java_args = config['configurations']['hydrosphere-env']['mist_java_args']
 mist_pid_file = os.path.join(mist_pid_dir, 'mist.pid')
 mist_log_file = os.path.join(mist_log_dir, 'mist-setup.log')
 

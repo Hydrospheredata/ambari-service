@@ -1,5 +1,5 @@
-#### An Ambari Service for Mist
-Ambari service for easily installing and managing Mist on HDP cluster
+#### An Ambari Service for Hydrosphere
+Ambari service for easily installing and managing Hydrosphere on HDP cluster
 
 ##### Setup
 
@@ -17,10 +17,10 @@ ssh root@sandbox.hortonworks.com
 #or use with VirtualBox
 ssh root@localhost -p 2222
 ```
-- To deploy the Mist service, run below on ambari server
+- To deploy the Hydrosphere service, run below on ambari server
 ```
 VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
-sudo git clone https://github.com/Hydrospheredata/ambari-mist-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/MIST
+sudo git clone https://github.com/Hydrospheredata/ambari-mist-service.git   /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/HYDROSPHERE
 ```
 - Restart Ambari
 ```
@@ -39,5 +39,5 @@ ambari-admin-password-reset
 ![Image](screenshots/configure.png?raw=true)
 - Configure package
 ![Image](screenshots/service.png?raw=true)
-- Start jobs using Mist View
+- Start jobs using Hydrosphere View
 ![Image](screenshots/view.png?raw=true)

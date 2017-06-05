@@ -64,9 +64,9 @@ class Master(Script):
 
         if params.setup_view:
             if params.ambari_host == params.mist_internalhost and not os.path.exists(
-                    '/var/lib/ambari-server/resources/views/ambari-proxied-mist-view-0.0.1.jar'):
+                    '/var/lib/ambari-server/resources/views/ambari-proxied-view-0.0.1.jar'):
                 Execute('echo "Copying mist view jar to ambari views dir"')
-                Execute(format("cp {mist_dir}/ambari-proxied-mist-view-0.0.1.jar "
+                Execute(format("cp {mist_dir}/ambari-proxied-view-0.0.1.jar "
                                "/var/lib/ambari-server/resources/views"), ignore_failures=True)
 
     def configure(self, env):

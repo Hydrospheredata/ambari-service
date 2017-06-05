@@ -53,12 +53,12 @@
     </property>
     <property>
         <name>default_config_file</name>
-        <value>/usr/hdp/current/mist/configs/default.conf</value>
+        <value>/usr/share/mist/configs/default.conf</value>
         <description>Default configuration</description>
     </property>
     <property>
         <name>default_routers_file</name>
-        <value>/usr/hdp/current/mist/configs/router-examples.conf</value>
+        <value>/usr/share/mist/configs/router-examples.conf</value>
         <description>Default routers configuration</description>
     </property>
 
