@@ -11,7 +11,7 @@ mkdir -p /usr/hdp/current/knox-server/data/services/mist/0.0.1/
 ```
 4. Add service definition to knox
 ```
-cat <<EOF > /usr/hdp/current/knox-server/data/services/mist/0.0.1/service.xml
+cat << EOF > /usr/hdp/current/knox-server/data/services/mist/0.0.1/service.xml
 <service role="MIST" name="mist" version="0.0.1">
   <routes>
     <route path="/mist/**"/>
@@ -21,7 +21,7 @@ EOF
 ```
 5. Add rewrite definition to knox
 ```
-cat <<EOF > /usr/hdp/current/knox-server/data/services/mist/0.0.1/rewrite.xml
+cat << 'EOF' > /usr/hdp/current/knox-server/data/services/mist/0.0.1/rewrite.xml
 <rules>
   <rule dir="IN" name="MIST/mist/inbound" pattern="*://*:*/**/mist/{path=**}?{**}">
     <rewrite template="{$serviceUrl[MIST]}/{path=**}?{**}"/>
@@ -87,3 +87,4 @@ EOF
 ```
 curl -iku guest:guest-password -X GET 'https://sandbox.hortonworks.com:8443/gateway/hydrosphere/mist/internal/routers'
 ```
+8. Got to ranger and configure access http://sandbox.hortonworks.com:6080/index.html#!/service/3/policies/0
