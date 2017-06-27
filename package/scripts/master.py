@@ -43,7 +43,7 @@ class Master(Script):
         tar.extractall(path="/tmp")
         tar.close()
         Execute(format("cp -R /tmp/mist-{mist_version}-{spark_version}/* {mist_dir}"))
-        Execute(format("sudo chown -R {mist_user}:hadoop {mist_dir}"))
+        Execute(format("sudo chown -R {mist_user}:{mist_group} {mist_dir}"))
 
         # Install packages listed in metainfo.xml
         self.install_packages(env)

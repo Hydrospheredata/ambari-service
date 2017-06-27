@@ -35,7 +35,7 @@
 
   <property>
     <name>mist_group</name>
-    <value>mist</value>
+    <value>hadoop</value>
     <property-type>GROUP</property-type>
     <description>Mist group</description>
   </property>
@@ -244,7 +244,7 @@ export SPARK_HOME={{spark_home}}
 set -e
 
 start() {
-    {{mist_dir}}/bin/mist-master start --config {{default_config_file}} --router-config {{default_routers_file}} --pid {{mist_pid_file}} --java-args {{mist_java_args}}
+    /sbin/runuser {{mist_user}} -s /bin/bash -c "{{mist_dir}}/bin/mist-master start --config {{default_config_file}} --router-config {{default_routers_file}} --pid {{mist_pid_file}} --java-args {{mist_java_args}}"
 }
 
 stop() {
