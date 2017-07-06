@@ -31,7 +31,7 @@
     </property>
     <property>
         <name>spark.version</name>
-        <value>1.6.2</value>
+        <value>2.0.2</value>
         <description>Spark version</description>
     </property>
     <property>

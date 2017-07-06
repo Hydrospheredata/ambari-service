@@ -29,7 +29,7 @@ class Master(Script):
         print 'Install the Mist Master'
         File(params.mist_log_file,
              mode=0644,
-             owner=params.mist_group,
+             owner=params.mist_user,
              group=params.mist_group,
              content=''
              )

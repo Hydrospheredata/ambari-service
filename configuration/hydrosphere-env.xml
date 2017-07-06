@@ -86,143 +86,50 @@
    <property>
       <name>mist_routers</name>
       <description>This is the jinja template for Mist router-examples.conf file</description>
-      <value>log-search = {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "SimpleTextSearch$"
-  namespace = "foo"
-}
+      <value>jar_path = "{{mist_dir}}/mist-examples-spark2.jar"
+  py_path = "{{mist_dir}}/examples-python"
 
-hive-test = {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "SimpleHiveContext$"
-  namespace = "foo"
-}
+  log-search = {
+      path = ${jar_path}
+      className = "SimpleTextSearch$"
+      namespace = "foo"
+  }
 
-streaming-log-search = {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "StreamingTextSearch$"
-  namespace = "streaming"
-}
+  hive-test = {
+      path = ${jar_path}
+      className = "SimpleHiveContext$"
+      namespace = "foo"
+  }
 
-classification = {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "MLClassification$"
-  namespace = "regression"
-}
+  streaming-log-search = {
+      path = ${jar_path}
+      className = "StreamingTextSearch$"
+      namespace = "streaming"
+  }
 
-simple-context = {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "SimpleContext$"
-  namespace = "foo"
-}
+  classification = {
+      path = ${jar_path}
+      className = "MLClassification$"
+      namespace = "ml"
+  }
 
-simple-context-py = {
-  path = "{{mist_dir}}/examples-python/simple_context.py"
-  className = "SimpleContext"
-  namespace = "foo"
-}
+  simple-context = {
+      path = ${jar_path}
+      className = "SimpleContext$"
+      namespace = "foo"
+  }
 
-hive-job-py = {
-  path = "{{mist_dir}}/examples-python/simple_hive_context.py"
-  className = "SimpleHiveContext"
-  namespace = "foo"
-}
+  simple-context-py = {
+      path = ${py_path}"/simple_context.py"
+      className = "SimpleContext"
+      namespace = "foo"
+  }
 
-simple-streaming-py = {
-  path = "{{mist_dir}}/examples-python/simple_streaming.py"
-  className = "SimpleStreaming"
-  namespace = "foo"
-}
-
-dtree {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "DTreeClassificationJob$"
-  namespace = "DTree"
-}
-
-regression {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "MLClassification$"
-  namespace = "Perceptron"
-}
-
-random_forest {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "RandomForestClassificationJob$"
-  namespace = "RandomForest"
-}
-
-binarizer {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "BinarizerJob$"
-  namespace = "Binarizer"
-}
-
-pca {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "PCAJob$"
-  namespace = "PCA"
-}
-
-minmaxscaler {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "MinMaxScalerJob$"
-  namespace = "MinMaxScaler"
-}
-
-standardscaler {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "StandardScalerJob$"
-  namespace = "StandardScaler"
-}
-
-maxabsscaler {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "MaxAbsScalerJob$"
-  namespace = "MaxAbsScaler"
-}
-
-stringindexer {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "StringIndexerJob$"
-  namespace = "StringIndexer"
-}
-
-onehotencoder {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "OneHotEncoderJob$"
-  namespace = "OneHotEncoder"
-}
-
-ngrams {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "NgramJob$"
-  namespace = "Ngram"
-}
-
-stop-words-remover {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "StopWordsRemoverJob$"
-  namespace = "StopWordsRemover"
-}
-
-normalizer {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "NormalizerJob$"
-  namespace = "Normalizer"
-}
-
-polynomial-expansion {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "PolynomialExpansionJob$"
-  namespace = "PolynomialExpansion"
-}
-
-dct {
-  path = "{{mist_dir}}/mist-examples-spark1.jar"
-  className = "DCTJob$"
-  namespace = "DCT"
-}
+  hive-job-py = {
+      path = ${py_path}"/simple_hive_context.py"
+      className = "SimpleHiveContext"
+      namespace = "foo"
+  }
       </value>
     </property>
 
@@ -244,6 +151,7 @@ export SPARK_HOME={{spark_home}}
 set -e
 
 start() {
+    cd {{mist_dir}}
     /sbin/runuser {{mist_user}} -s /bin/bash -c "{{mist_dir}}/bin/mist-master start --config {{default_config_file}} --router-config {{default_routers_file}} --pid {{mist_pid_file}} --java-args {{mist_java_args}}"
 }
 

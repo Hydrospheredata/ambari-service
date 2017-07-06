@@ -51,12 +51,4 @@ kadmin.local -q "addprinc admin/admin"
 ```
 7. Start kerberos wizard (Principal for KAdmin must be `admin/admin@EXAMPLE.COM`)
 ![Image](screenshots/kerberos_wizard.png?raw=true)
-8. Download csv file with principals
-![Image](screenshots/kerberos_download_csv.png?raw=true)
-9. Add keytabs
-```
-/var/lib/ambari-server/resources/scripts/kerberos-setup.sh /kerberos2.csv /root/.ssh/id_rsa
-#check keytabs
-ls -l /etc/security/keytabs
-```
-10. Finish wizard
+8`. Finish wizard
