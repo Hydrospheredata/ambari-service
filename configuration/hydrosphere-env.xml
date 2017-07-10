@@ -73,7 +73,7 @@
  mist.http.on = true
  mist.http.host = "{{mist_host}}"
  mist.http.port = {{mist_port}}
- mist.http.router-config-path = "{{conf_dir}}/router-examples.conf"
+ mist.http.router-config-path = "{{conf_dir}}/router.conf"
 
  mist.workers.runner = "local"
 

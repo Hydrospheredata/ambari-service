@@ -87,4 +87,7 @@ EOF
 ```
 curl -iku guest:guest-password -X GET 'https://sandbox.hortonworks.com:8443/gateway/hydrosphere/mist/internal/routers'
 ```
-8. Got to ranger and configure access http://sandbox.hortonworks.com:6080/index.html#!/service/3/policies/0
+8. Got to the Ranger http://sandbox.hortonworks.com:6080/index.html, select Knox.
+![Image](screenshots/ranger_knox.png?raw=true)
+9. Add New Policy with "Knox Topology"==hydrosphere
+![Image](screenshots/ranger_add_policy.png?raw=true)
