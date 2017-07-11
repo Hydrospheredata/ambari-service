@@ -32,25 +32,15 @@ chmod 400 /etc/security/keytabs/mist.keytab
 ```
 9. Add keytab and principal configuration to /usr/share/mist/configs/default.conf
 ```
-# spark master
- mist.context-defaults.spark-conf = {
-#   spark.master = "local[*]"
+  context-defaults.spark-conf = {
     spark.master = "yarn"
     spark.driver.host = sandbox.hortonworks.com
-    spark.yarn.keytab = "/etc/security/keytabs/spark.headless.keytab"
-    spark.yarn.principal = "spark-sandbox@EXAMPLE.COM"
- }
+  }
 
- mist.http.on = true
- mist.http.host = "0.0.0.0"
- mist.http.port = 2004
- mist.http.router-config-path = "/usr/share/mist/configs/router-examples.conf"
-
- mist.workers.runner = "local"
-
- mist.mqtt.on = false
- mist.recovery.on = false
-
- mist.context-defaults.disposable = false
+  security {
+    enabled = true
+    keytab = "/etc/security/keytabs/mist.keytab"
+    principal = "mist/sandbox.hortonworks.com@EXAMPLE.COM"
+  }
 ```
 
