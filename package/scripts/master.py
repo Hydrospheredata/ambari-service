@@ -36,7 +36,7 @@ class Master(Script):
         print 'Getting mist'
 
 
-        urllib.urlretrieve(format("http://repo.hydrosphere.io/static/mist-{mist_version}-{spark_version}.tar.gz"), "/tmp/mist.tar.gz")
+        urllib.urlretrieve(format("{repository_url}/mist-{mist_version}-{spark_version}.tar.gz"), "/tmp/mist.tar.gz")
 
         print 'Untar archive'
         tar = tarfile.open("/tmp/mist.tar.gz")

@@ -14,6 +14,8 @@ install_dir = '/usr/share'
 mist_host = config['configurations']['hydrosphere-config']['mist.server.host']
 mist_port = config['configurations']['hydrosphere-config']['mist.server.port']
 
+
+repository_url = config['configurations']['hydrosphere-ambari-config']['mist.tar.repository']
 mist_version = config['configurations']['hydrosphere-ambari-config']['mist.version']
 spark_version = config['configurations']['hydrosphere-ambari-config']['spark.version']
 setup_view = config['configurations']['hydrosphere-ambari-config']['mist.setup.view']

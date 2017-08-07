@@ -25,6 +25,11 @@
         </description>
     </property>
     <property>
+        <name>mist.tar.repository</name>
+        <value>http://repo.hydrosphere.io/hydrosphere/static/</value>
+        <description>Mist tar.gz repository url</description>
+    </property>
+    <property>
         <name>mist.version</name>
         <value>0.12.3</value>
         <description>Mist version</description>
