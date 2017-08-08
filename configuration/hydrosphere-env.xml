@@ -51,17 +51,6 @@
         <value>-Xmx512m</value>
         <description>Default java args</description>
     </property>
-    <property>
-        <name>default_config_file</name>
-        <value>/usr/share/mist/configs/default.conf</value>
-        <description>Default configuration</description>
-    </property>
-    <property>
-        <name>default_routers_file</name>
-        <value>/usr/share/mist/configs/router-examples.conf</value>
-        <description>Default routers configuration</description>
-    </property>
-
   <property>
      <name>mist_default</name>
      <description>This is the jinja template for Mist default.conf file</description>
@@ -152,7 +141,7 @@ set -e
 
 start() {
     cd {{mist_dir}}
-    /sbin/runuser {{mist_user}} -s /bin/bash -c "{{mist_dir}}/bin/mist-master start --config {{default_config_file}} --router-config {{default_routers_file}} --pid {{mist_pid_file}} --java-args {{mist_java_args}}"
+    /sbin/runuser {{mist_user}} -s /bin/bash -c "{{mist_dir}}/bin/mist-master start --config {{conf_dir}}/default.conf --router-config {{conf_dir}}/router.conf --pid {{mist_pid_file}} --java-args {{mist_java_args}}"
 }
 
 stop() {

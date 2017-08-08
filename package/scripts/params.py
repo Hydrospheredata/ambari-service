@@ -29,15 +29,13 @@ mist_user = config['configurations']['hydrosphere-env']['mist_user']
 mist_group = config['configurations']['hydrosphere-env']['mist_group']
 mist_log_dir = config['configurations']['hydrosphere-env']['mist_log_dir']
 mist_pid_dir = config['configurations']['hydrosphere-env']['mist_pid_dir']
-default_config_file = config['configurations']['hydrosphere-env']['default_config_file']
-default_routers_file = config['configurations']['hydrosphere-env']['default_routers_file']
 mist_java_args = config['configurations']['hydrosphere-env']['mist_java_args']
 mist_pid_file = os.path.join(mist_pid_dir, 'mist.pid')
 mist_log_file = os.path.join(mist_log_dir, 'mist-setup.log')
 
 
-mist_dir = os.path.join(*[install_dir, mist_dirname])
-conf_dir = os.path.join(*[install_dir, mist_dirname, 'configs'])
+mist_dir = os.path.join(*[install_dir, mist_dirname, mist_version+"_"+spark_version])
+conf_dir = os.path.join(*[install_dir, mist_dirname, mist_version+"_"+spark_version, 'configs'])
 
 # detect configs
 master_configs = config['clusterHostInfo']

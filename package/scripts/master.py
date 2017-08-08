@@ -76,10 +76,10 @@ class Master(Script):
         env.set_params(status_params)
 
         mist_default = InlineTemplate(status_params.mist_default_template_config)
-        File(format(params.default_config_file), content=mist_default, owner=params.mist_user, group=params.mist_group, mode=0644)
+        File(format("{conf_dir}/default.conf"), content=mist_default, owner=params.mist_user, group=params.mist_group, mode=0644)
 
         mist_routers = InlineTemplate(status_params.mist_routers_template_config)
-        File(format(params.default_routers_file), content=mist_routers, owner=params.mist_user, group=params.mist_group, mode=0644)
+        File(format("{conf_dir}/router.conf"), content=mist_routers, owner=params.mist_user, group=params.mist_group, mode=0644)
 
     def stop(self, env):
         self.configure(env)
