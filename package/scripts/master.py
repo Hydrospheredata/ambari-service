@@ -20,7 +20,7 @@ class Master(Script):
 
         Execute('find ' + params.service_packagedir + ' -iname "*.sh" | xargs chmod +x')
         # create the log, pid, mits dirs
-        Directory([params.mist_pid_dir, params.mist_log_dir, params.mist_dir, params.conf_dir],
+        Directory([params.mist_pid_dir, params.mist_log_dir, params.base_mist_dir, params.mist_dir, params.conf_dir],
                   owner=params.mist_user,
                   group=params.mist_group
                   )
