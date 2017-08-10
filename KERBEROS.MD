@@ -30,14 +30,14 @@ kadmin.local -q "xst -k /etc/security/keytabs/mist.keytab mist/sandbox.hortonwor
 chown mist:hadoop /etc/security/keytabs/mist.keytab
 chmod 400 /etc/security/keytabs/mist.keytab
 ```
-9. Add keytab and principal configuration to /usr/share/mist/configs/default.conf
+9. Add keytab and principal configuration to /usr/share/mist/0.13.1_2.0.2/configs/default.conf
 ```
   context-defaults.spark-conf = {
     spark.master = "yarn"
     spark.driver.host = sandbox.hortonworks.com
   }
 
-  security {
+  mist.security {
     enabled = true
     keytab = "/etc/security/keytabs/mist.keytab"
     principal = "mist/sandbox.hortonworks.com@EXAMPLE.COM"
