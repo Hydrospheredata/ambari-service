@@ -8,7 +8,7 @@
             <comment>Hydrosphere is a service for exposing analytical
               jobs and machine learning models as web services.
             </comment>
-            <version>0.13.0</version>
+            <version>0.13.3</version>
             <components>
                 <component>
                     <name>HYDROSPHERE_MASTER</name>
@@ -45,7 +45,7 @@
                     </packages>
                 </osSpecific>
                 <osSpecific>
-                    <osFamily>redhat7,redhat6,redhat5</osFamily>
+                    <osFamily>redhat7,redhat6,redhat5,centos6</osFamily>
                     <packages>
                       <package>
                           <name>python-devel</name>
