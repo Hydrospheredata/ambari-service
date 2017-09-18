@@ -31,7 +31,7 @@
     </property>
     <property>
         <name>mist.version</name>
-        <value>0.13.1</value>
+        <value>0.13.3</value>
         <description>Mist version</description>
     </property>
     <property>
